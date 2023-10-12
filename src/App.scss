@@ -1,0 +1,378 @@
+@mixin mobile{
+    @media screen and (max-width : 480px) {
+        @content;
+    }
+}
+
+@mixin tablet{
+    @media screen and (max-width : 768px) {
+        @content;
+    }
+}
+
+@mixin laptop{
+    @media screen and (max-width : 1200px) {
+        @content;
+    }
+}
+
+
+
+.formContainer{
+     background:  #c2dff0;
+     height : 100vh;
+     display : flex;
+     align-items : center ;
+     justify-content : center;
+
+     .formWrapper{
+        background-color : white;
+        padding : 30px 60px;
+        border-radius: 15px ;
+        display : flex;
+        flex-direction: column;
+        gap: 15px;
+        align-items: center;
+
+    .logo{
+        color :  #d76340;
+        font-weight: bold;
+        font-size: 20px;
+    }
+
+    .title{
+        color :   #d76340;
+        font-weight: bold;
+        font-size: 14px;
+    }
+
+    form {
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+    
+        input {
+            padding: 12px;
+            width: 240px;
+            border: none;
+            border-bottom: 2px solid  #d76340;
+
+            &::placeholder{
+                color : #86bedf ;   
+            }
+        }
+
+        button{
+        background-color:  #d76340;
+        color: white;
+        padding: 8px;
+        font-weight: bold;
+        font-size: 15px;
+        border: none;
+        cursor: pointer;
+        }
+        label{
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            color:#86bedf ;
+            font-size: 14px;
+            cursor : pointer;
+        }
+    }
+    p{
+        color: #d76340;
+        font-size: 14px;
+        margin-top: 12px;
+    }
+     }
+}
+
+        // styling of the home page
+.home{
+    background:  #c2dff0;
+    height : 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    .container {
+        border: 2px solid #2f2b2b;
+        border-radius: 10px;
+        width: 70%;
+        height: 70%;
+        display: flex;
+        overflow: hidden;
+        @include tablet{
+            width:90%;
+        }  
+    }
+       
+        }
+        
+    
+        .sidebar {
+            flex: 1;
+            border-right : 2px solid #2f2b2b;
+            background-color:rgb(113, 113, 113) ;
+            position: relative;
+            @include tablet{
+                width:20%;
+            }  
+
+            // Navbar styling in the sidebar starts from here
+            .navbar{
+                display: flex;
+                padding: 15px;
+                background-color: #2f2b2b;
+                color: white;
+                height: 30px;
+                align-items: center;
+                justify-content: space-between;
+
+                .logo{
+                    font-weight:bold;
+                    @include tablet{
+                        display: none;
+                    }  
+                }
+                .user{
+                    display: flex;
+                    gap: 12px;
+                }
+                img{
+                    background-color: #fff;
+                    height: 30px;
+                    width: 30px;
+                    border-radius: 50%;
+                    object-fit: cover;
+
+                }
+
+                button{
+                    background-color: rgb(132, 105, 105);
+                    font-size: 10px;
+                    color: white;
+                    border: none;
+                    cursor: pointer;
+                    @include tablet{
+                        position:absolute;
+                        bottom: 14px;
+                    }  
+                }
+                }
+            }
+
+            // styling for the navbar ends here
+
+
+            // styling for the searchbar starts from here 
+            .search{
+               border-bottom: 2px solid #2f2b2b; 
+               .searchForm{
+                padding: 12px;
+
+                input{
+                    background-color: transparent;
+                    border: none;
+                    color: white;
+                    outline: none;
+                    &::placeholder {
+                        color:white;
+                    }
+                   }
+               }
+             
+               .userChat{
+                padding: 12px;
+                display: flex;
+                align-items: center;
+                gap: 12px;
+                color: white;
+                cursor: pointer;
+
+                &:hover{
+                    background-color:  #484545;
+                }
+                img{
+                    width: 50px;
+                    height: 50px;
+                    border-radius: 50%;
+                    object-fit: cover;
+                }
+             span{
+                font-weight: bold; 
+                font-size: 15px;
+             }
+            }
+            }
+            // styling for the searchbar is end here
+
+            // styling for the chats component section starts from here 
+
+           .chats{
+            
+            .userChat{
+                padding: 12px;
+                display: flex;
+                align-items: center;
+                gap: 12px;
+                color: white;
+                cursor: pointer;
+
+                &:hover{
+                    background-color:  #484545;
+                }
+                img{
+                    width: 50px;
+                    height: 50px;
+                    border-radius: 50%;
+                    object-fit: cover;
+                }
+            }
+            span{
+                font-size: 15px;
+                font-weight: bold;
+            }
+            p{
+                font-size: 12px;
+            }
+           }
+            // styling for the chats section ends here
+            
+        
+
+        // styling for the sidebar ends here
+    
+
+        // Styling for the chat section starts from here
+        
+
+        // styling for the header section of the chat section
+
+        .chat {
+            flex: 2;
+
+            .chatInfo{
+            height : 30px;
+            background-color: #e8b06b;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 12px;
+            color: white;
+
+            .chatIcons{
+                display: flex;
+                gap: 12px;
+                img{
+                    height: 24px;
+                    cursor: pointer;
+                }
+            }
+            }
+
+              // styling for the messages section of the chat section 
+              .messages{
+              background-color: #e6ccad; 
+              padding: 10px; 
+              height: calc(100% - 130px);
+              overflow: scroll;
+
+            //   Styling for the Message section 
+
+            .message{
+                display: flex;
+                gap: 12px;
+                margin-bottom: 20px;
+                .messageInfo{
+                   display: flex;
+                   flex-direction: column;
+                   font-size: 14px;
+
+                    img{
+                        width: 40px;
+                        height:40px;
+                        border-radius: 50%;
+                        object-fit: cover;
+                    }
+
+                }
+                .messageContent{
+                    p{
+                        max-width: 80%;
+                      background-color: white; 
+                      border-radius: 0px 12px 12px 12px; 
+                      padding: 12px;
+                      max-width: max-content;
+
+                    }
+                    // img{
+                    //     width: 50%;
+                    //     height: 50%;
+                       
+                    // }
+                }
+                //    for styling the other side of the chat section
+                    
+                    &.owner{
+                        flex-direction: row-reverse;
+                        
+                      .messageContent{
+                         
+                        align-items: flex-end;
+                      }
+                        
+                   p{
+                    background-color: #d0bea9;
+                    border-radius: 10px 0px 10px 10px;
+                   
+                   }
+                }
+                       }
+                }
+            
+            }
+          
+           
+
+            // styling for the border bottom input of the chat section
+
+            .input{
+                height: 40px;
+                background-color: #fff;
+                padding: 12px; 
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+
+                input{
+
+                    width: 100%;
+                    border: none;
+                    outline: none;
+                    font-size: 16px;
+                }
+                
+                .send{
+                    display: flex;
+                    align-items: center;
+                    gap: 12px;
+                    img{
+                        height : 24px;
+                        cursor : pointer;
+                    }
+                    button{
+                        border : none;
+                        background-color: #e8b06b;
+                        cursor:pointer;
+                        padding: 9px;
+                    }
+                }
+            }
+
+        
+
+    
+      
+        
